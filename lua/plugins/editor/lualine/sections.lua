@@ -45,6 +45,7 @@ return {
     },
     lsp_status,
     formatter,
+    "filetye",
   },
   lualine_y = {
     {
@@ -53,19 +54,26 @@ return {
         if ft == "neo-tree" then
           return "󰙅 neo-tree"
         end
-        local filename = vim.fn.expand("%:t")
-        local extension = vim.fn.expand("%:e")
-        local icon = require("nvim-web-devicons").get_icon(filename, extension, { default = true })
-        return string.format("%s %s", icon or "", filename)
+
+        -- [icono] + [nameFile].[typeFile]
+        -- local filename = vim.fn.expand("%:t")
+        -- local extension = vim.fn.expand("%:e")
+        -- local icon = require("nvim-web-devicons").get_icon(filename, extension, { default = true })
+        -- return string.format("%s %s", icon or "", filename)
+
+        -- [icono] + [typeFile]
+        local filetype = vim.fn.expand("%:e")
+        local icon = require("nvim-web-devicons").get_icon_by_filetype(filetype, { default = true })
+        return string.format("%s %s", icon or "", filetype)
       end,
       color = { fg = "#313244" }
     }
   },
   lualine_z = {
-    {
-      "progress",
-      padding = { right = 0 }
-    },
+    -- {
+    --   "progress",
+    --   padding = { right = 0 }
+    -- },
     {
       "location",
       padding = { left = 0 }

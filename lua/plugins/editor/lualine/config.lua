@@ -2,10 +2,10 @@ local M = {}
 local shared_sections = require("plugins.editor.lualine.sections")
 local catppuccin = require("lualine.themes.catppuccin")
 local mocha = require("catppuccin.palettes").get_palette("mocha")
-local macchiato = require("catppuccin.palettes").get_palette("macchiato")
+-- local macchiato = require("catppuccin.palettes").get_palette("macchiato")
 
 -- Modo NORMAL [a]
-catppuccin.normal.a.bg = mocha.lavender -- Azul pastel
+catppuccin.normal.a.bg = "#89B4FA" -- Azul pastel
 catppuccin.normal.a.fg = mocha.surface0
 
 -- Modo INSERT [a]
@@ -28,12 +28,12 @@ catppuccin.command.a.fg = mocha.surface0
 catppuccin.inactive.a.bg = mocha.surface0 -- Gris oscuro
 catppuccin.inactive.a.fg = mocha.text     -- Texto claro
 
--- Secction [b]
-catppuccin.normal.b.bg = macchiato.base
-catppuccin.normal.b.fg = mocha.subtext0
+-- Secction [b] w
+catppuccin.normal.b.bg = "#11111b"
+catppuccin.normal.b.fg = mocha.subtext1
 
 -- Secction [c]
-catppuccin.normal.c.bg = macchiato.base
+catppuccin.normal.c.bg = "#11111b"
 
 -- Secction [z, y]
 catppuccin.normal.z = { fg = mocha.surface0, bg = mocha.flamingo }

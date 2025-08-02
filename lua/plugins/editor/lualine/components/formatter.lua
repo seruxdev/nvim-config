@@ -12,7 +12,7 @@ return {
     -- Revisar si algún cliente tiene formateo habilitado
     for _, client in ipairs(clients) do
       if client.server_capabilities.documentFormattingProvider then
-        return "󰄭 Fmt󰇙default" -- .. client.name 🛠       󰅩 
+        return "󰄭 default" -- .. client.name 🛠       󰅩 
       end
     end
 
@@ -27,7 +27,7 @@ return {
     -- Si existe, formatea con el formatter externo
     for _, formatter in ipairs(fmt) do
       if formatter.available then
-        return "󰄭 Fmt::" .. formatter.name
+        return "󰄭 " .. formatter.name
       end
     end
 
@@ -42,24 +42,25 @@ return {
 
     for _, client in ipairs(clients) do
       if client.server_capabilities.documentFormattingProvider then
-        return { fg = mocha.subtext0 } -- verde si hay LSP formatter
+        return { fg = mocha.subtext1 } -- verde si hay LSP formatter
       end
     end
 
     local ok, fmt_ext = pcall(require, "conform")
     if not ok then
-      return { fg = "#5c6370" } -- gris si nada
+      -- return { fg = "#5c6370" } -- gris si nada
+      return { fg = mocha.subtext1 } -- gris si nada
     end
 
     local fmt = fmt_ext.list_formatters(bufnr)
 
     for _, formatter in ipairs(fmt) do
       if formatter.available then
-        return { fg = mocha.subtext0 } -- verde si hay externo
+        return { fg = mocha.subtext1 } -- verde si hay externo
       end
     end
 
-    return { fg = "#5c6370" } -- gris si ninguno
+    return { fg = mocha.subtext1 } -- gris si ninguno
   end,
   padding = { right = 2 }
 }
