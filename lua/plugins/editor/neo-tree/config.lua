@@ -4,6 +4,7 @@ M.opts = function()
   return {
     enable_git_status = true,
     enable_diagnostics = true,
+    log_level = "warn",
 
     window = {
       position = "right",
