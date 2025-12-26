@@ -9,7 +9,7 @@ return {
       for _, client in pairs(clients) do
         table.insert(buf_client_names, client.name)
       end
-      return "󰅩 Lsp󰇙" .. table.concat(buf_client_names)
+      return "󰅩 " .. table.concat(buf_client_names)
     else
       return "" -- 
     end
@@ -17,7 +17,7 @@ return {
   color = function()
     local clients = vim.lsp.get_clients({ bufnr = 0 })
     if #clients > 0 then
-      return { fg = mocha.subtext0 }
+      return { fg = mocha.subtext1 }
     else
       return { fg = "#5c6370" }
     end

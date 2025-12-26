@@ -12,6 +12,13 @@ M.opts = function()
       mason = true,
       gitsigns = true,
       notify = true,
+      telescope = { enable = true },
+      barbecue = {
+        dim_dirname = true,
+        bold_basename = true,
+        dim_context = false,
+        alt_background = false,
+      },
       native_lsp = {
         enabled = true,
         underlines = {
@@ -24,12 +31,16 @@ M.opts = function()
     },
     custom_highlights = function(colors)
       return {
+        Normal                  = { bg = colors.base, fg = colors.text },
+        NormalNC                = { bg = colors.base },
+
         CursorLine              = { bg = "#363a4f" }, -- fondo de la línea actual (surface0 - Macchiato)
 
         -- Colores para Neo-Tree
-        WinSeparator            = { fg = colors.overlay1, bg = "NONE" },                -- Cambia el color de la linea divisora de neo-tree
-        NeoTreeNormal           = { bg = "NONE" },                                      -- Cambia el color de fondo ventana activa
-        NeoTreeNormalNC         = { bg = "NONE" },                                      -- Cambia el color de fondo ventana no activa (No focus)
+        -- WinSeparator            = { fg = colors.overlay1, bg = "NONE" },                -- Cambia el color de la linea divisora de neo-tree
+        WinSeparator            = { fg = colors.mantle, bg = colors.mantle },           -- Cambia el color de la linea divisora de neo-tree
+        NeoTreeNormal           = { bg = colors.mantle },                               -- Cambia el color de fondo ventana activa
+        NeoTreeNormalNC         = { bg = colors.mantle },                               -- Cambia el color de fondo ventana no activa (No focus)
         NeoTreeEndOfBuffer      = { fg = "NONE", bg = "NONE" },                         -- Cambia el color de la zona vacía al final del buffer
         NeoTreeMessage          = { fg = colors.subtext0, bg = "NONE", italic = true }, -- texto de mensajes (hidden)
 
