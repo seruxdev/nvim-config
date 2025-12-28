@@ -13,7 +13,7 @@ M.opts = function()
         ["<tab>"] = "focus_preview",
         ["l"] = "open",
         ["h"] = "close_node",
-        ["z"] = "toggle_hidden",
+        ["."] = "toggle_hidden",
       }
     },
 

@@ -11,13 +11,14 @@ return {
         require("telescope").load_extension("live_grep_args")
       end,
     },
-    {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make", -- Build the plugin using make
-      config = function()
-        require("telescope").load_extension("fzf")
-      end,
-    },
+    -- Solo para que funcione en windows
+    -- {
+    --   "nvim-telescope/telescope-fzf-native.nvim",
+    --   build = "make", -- Build the plugin using make
+    --   config = function()
+    --     require("telescope").load_extension("fzf")
+    --   end,
+    -- },
   },
   opts = function()
     require("plugins.editor.telescope.config").opts()
